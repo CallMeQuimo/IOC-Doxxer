@@ -1,0 +1,14 @@
+# Ignorar carpetas de build
+build/
+dist/
+__pycache__/
+
+# Ignorar archivos temporales
+*.spec
+*.pyc
+*.pyo
+*.log
+notas.txt
+
+# Ignorar ejecutables generados
+*.exe
