@@ -2,15 +2,24 @@ import webbrowser
 import ipaddress
 import re
 
-#Abrir herramientas web
+# Abrir herramientas web
 def opVT(ioc):
     webbrowser.open(f"https://www.virustotal.com/gui/search/{ioc}")
 def opIPBD(ioc):
     webbrowser.open(f"https://www.abuseipdb.com/check/{ioc}")
 
+# Filtrar datos
+def trimURL(ioc):
+    return re.sub(r"^https?://", "", ioc)
+
 # Validación de datos
-def validURL(ioc):
-    patron = re.compile(r"^https?://[^\s/$.?#].[^\s]*$")
+def validLink(ioc):
+    patron = re.compile(
+        r"^(https?://)?"            # Opcional: http:// o https://
+        r"([a-zA-Z0-9.-]+)"         # Dominio
+        r"\.[a-zA-Z]{2,}"           # .com, .org, etc
+        r"(/.*)?$"                  # Rutas específicas
+    )
     return bool(patron.match(ioc))
 def validIP(ioc):
     try:
@@ -19,11 +28,6 @@ def validIP(ioc):
     except ValueError:
         return False
 def validIOC(ioc):
-    v = False
-    while not v:
-        if(validURL(ioc) or validIP(ioc)):
-            v = True
-        else:
-            ioc = input("El IOC ingresado no es legible, ingresa de nuevo:")
-
-    return ioc
+    while not (validLink(ioc) or validIP(ioc)):
+        ioc = input("El IOC ingresado no es legible, ingresa de nuevo:").lower().strip()
+    return trimURL(ioc)
