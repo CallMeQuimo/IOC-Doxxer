@@ -28,6 +28,4 @@ def validIP(ioc):
     except ValueError:
         return False
 def validIOC(ioc):
-    while not (validLink(ioc) or validIP(ioc)):
-        ioc = input("El IOC ingresado no es legible, ingresa de nuevo:").lower().strip()
-    return trimURL(ioc)
+    return validLink(ioc) or validIP(ioc)
