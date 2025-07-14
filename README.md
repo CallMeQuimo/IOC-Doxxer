@@ -1,8 +1,8 @@
 # IOC-Doxxer!
 
-**Versión:** 0.4
-**Autor:** Quimey Leguizamón
-**Descripción:**  
+**Versión:** 0.4   
+**Autor:** Quimey Leguizamón   
+**Descripción:**   
 IOC-Doxxer! es una app gráfica desarrollada en Python que busca analizar IPs o URLs sospechosas en servicios OSINT, con un enfoque en facilidad de uso, legibilidad del código y escalabilidad futura.
 
 ## Características
@@ -14,19 +14,7 @@ IOC-Doxxer! es una app gráfica desarrollada en Python que busca analizar IPs o 
 - Placeholder dinámico en el campo de entrada.
 - Planeado: Más motores, historial local, mejoras de diseño, etc.
 
-## 📂 Estructura del proyecto
-proyecto/
-├── backend/
-│ └── functions.py # Lógica de validación y análisis
-├── frontend/
-│ └── gui.py # Interfaz gráfica (Tkinter)
-├── main.py # Entry point (lanza la GUI)
-├── README.md # Este archivo
-├── .gitignore # Ignorar archivos innecesarios (.pyc, dist/, etc.)
-
----
-
-## ⚙️ Requisitos
+## Requisitos
 
 - Python 3.8 o superior
 - Librerías estándar: `tkinter`, `webbrowser`, `ipaddress`, `re`
