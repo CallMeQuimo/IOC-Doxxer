@@ -18,8 +18,8 @@ def centrarGUI(root):
 
 def launch_gui():
     root = tk.Tk()
-    root.title("IOC-Doxxer! [v0.3]")
-    root.minsize(350, 150)               # Ajuste manual del ancho para que entre cómodo
+    root.title("IOC-Doxxer! [v0.4]")
+    root.minsize(250, 140)
     centrarGUI(root)
 
     ##Checkboxes
@@ -30,14 +30,18 @@ def launch_gui():
     ipbd = tk.BooleanVar(value=True)
     checkPlaceholder = tk.BooleanVar(value=False)
 
-    #Columna izquierda
+    #1er columna
     ttk.Checkbutton(tools_frame, text="VirusTotal", variable=vt).grid(row=0, column=0, sticky="w", padx=5, pady=2)
     ttk.Checkbutton(tools_frame, text="AbuseIPDB", variable=ipbd).grid(row=1, column=0, sticky="w", padx=5, pady=2)
     ttk.Checkbutton(tools_frame, text="Placeholder", variable=checkPlaceholder).grid(row=2, column=0, sticky="w", padx=5, pady=2)
-    #Columna derecha
+    #2da columna
     ttk.Checkbutton(tools_frame, text="Placeholder", variable=checkPlaceholder).grid(row=0, column=1, sticky="w", padx=5, pady=2)
     ttk.Checkbutton(tools_frame, text="Placeholder", variable=checkPlaceholder).grid(row=1, column=1, sticky="w", padx=5, pady=2)
     ttk.Checkbutton(tools_frame, text="Placeholder", variable=checkPlaceholder).grid(row=2, column=1, sticky="w", padx=5, pady=2)
+    #3er columna
+    ttk.Checkbutton(tools_frame, text="Placeholder", variable=checkPlaceholder).grid(row=0, column=2, sticky="w", padx=5, pady=2)
+    ttk.Checkbutton(tools_frame, text="Placeholder", variable=checkPlaceholder).grid(row=1, column=2, sticky="w", padx=5, pady=2)
+    ttk.Checkbutton(tools_frame, text="Placeholder", variable=checkPlaceholder).grid(row=2, column=2, sticky="w", padx=5, pady=2)
 
     ##Entrada + Botón
     input_frame = ttk.Frame(root, padding=(0,10))
@@ -84,7 +88,5 @@ def launch_gui():
             opVT(clean)
         if ipbd_var.get():
             opIPBD(clean)
-
-        messagebox.showinfo("Hecho", f"Se abrieron las pestañas para: {clean}")
 
     root.mainloop()
